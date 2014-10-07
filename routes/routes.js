@@ -29,12 +29,18 @@ exports.mail = function(req, res) {
     var formId = val.val().formcounter;
     ref.child('formcounter').set(formId + 1);
 
+    var formData = {};
+    formData.id = formId;
+    formData.name = "nexthaunt";
+    formData.users = {};
+
     emails = req.body.emails;
     form = req.body.form;
     hashes = {};
     fs.readFile(__dirname + '/../email_templates/poll.html', 'utf8', function (err, template) {
       if (err) throw err;
       console.log(template);
+      var userCounter = 0;
       _.each(emails, function (email, idx) {
         var shasum = crypto.createHash('sha1');
         shasum.update(email + form);
@@ -45,6 +51,7 @@ exports.mail = function(req, res) {
         };
         email_html = template.replace('{email_action}', 'http://localhost:3000/update')
         email_html = email_html.replace('{email_token}', hash);
+        email_html = email_html.replace('{email_id}', formId);
         // setup e-mail data with unicode symbols
         var mailOptions = {
             from: 'Victor Hung <victormeetmail@gmail.com>', // sender address
@@ -63,8 +70,15 @@ exports.mail = function(req, res) {
               }
           });
         }
+        formData.users[userCounter] = { 
+          email: email, 
+          token: hash
+        };
+        userCounter ++;
       });
-      // Write hashes to firebase
+
+      // Update Firebase
+      ref.child('form').child(formId).set(formData);
       res.end();
     });
   });
