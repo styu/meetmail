@@ -4,8 +4,19 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var routes = require(__dirname + '/routes/routes');
+var nodemailer = require('nodemailer');
+var auth = require(__dirname + '/authConfig').auth;
 
 var app = express();
+
+// create reusable transporter object using SMTP transport
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: auth.user,
+        pass: auth.password
+    }
+});
 
 // VIEW ENGINE
 app.set('views', __dirname + '/views');
