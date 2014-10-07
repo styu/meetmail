@@ -9,3 +9,12 @@
 
 Note that whatever extension your font-family uses, replace the 'ttf' with that extension
 */
+
+.thank-you {
+  text-align: center;
+  padding: 50px;
+}
+
+.thank-you footer {
+  color: #ccc;
+}
