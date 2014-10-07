@@ -83,3 +83,13 @@ exports.mail = function(req, res) {
     });
   });
 }
+
+exports.update = function(req, res) {
+  // find firebase child based on req.body.token
+  new Firebase("https://poofytoo.firebaseio.com/meetmail")
+    .equalTo(null, req.body.token)
+    .once('value', function(snap) {
+       console.log('accounts matching email address', snap.val())
+    });
+  res.end();
+}

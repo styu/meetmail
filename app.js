@@ -7,8 +7,6 @@ var routes = require(__dirname + '/routes/routes');
 var firebase = require('firebase');
 var app = express();
 
-
-
 // VIEW ENGINE
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
@@ -26,6 +24,7 @@ app.get('/preview', function(req, res) {
   res.render('../email_templates/poll-pretty.html');
 })
 app.post('/mail', routes.mail);
+app.post('/update', routes.update);
 
 // Uncomment the next line to test the database
 // app.get('/test-database', routes.testDatabase);
