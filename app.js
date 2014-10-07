@@ -4,7 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var routes = require(__dirname + '/routes/routes');
-
+var firebase = require('firebase');
 var app = express();
 
 
@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 
 app.get('/', routes.index);
 app.get('/preview', function(req, res) {
-  res.render('../email_templates/poll.html');
+  res.render('../email_templates/poll-pretty.html');
 })
 app.post('/mail', routes.mail);
 

@@ -10,6 +10,7 @@
     "hbs": "*",
     "body-parser": "*",
     "mongoose": "*",
-    "nodemailer": "*"
+    "nodemailer": "*",
+    "firebase": "*"
   }
 }
