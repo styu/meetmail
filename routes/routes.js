@@ -31,7 +31,7 @@ exports.mail = function(req, res) {
 
     var formData = {};
     formData.id = formId;
-    formData.name = form;
+    formData.name = req.body.form;
     formData.users = {};
 
     emails = req.body.emails;
