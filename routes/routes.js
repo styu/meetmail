@@ -85,11 +85,20 @@ exports.mail = function(req, res) {
 
 exports.update = function(req, res) {
   // find firebase child based on req.body.token
-  new Firebase("https://poofytoo.firebaseio.com/meetmail")
-    .equalTo(null, req.body.token)
-    .once('value', function(snap) {
-       console.log('accounts matching email address', snap.val())
-    });
+  var token = req.body.token || "8e1fc2ce1f64f0b243db73922d5111e799a9ba88";
+  var formId = req.body.email_id || 5;
+
+  ref = new Firebase("https://poofytoo.firebaseio.com/meetmail");
+  ref.once('value', function(s) {
+      data = s.val();
+      usersList = data.form[formId].users;
+      for (user in usersList) {
+        if (usersList[user].token == token) {
+          console.log(usersList[user].email + " just submitted a response!");
+          // token matches!
+        };
+      }
+  });
   res.end();
 }
 

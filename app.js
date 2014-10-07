@@ -23,6 +23,7 @@ app.get('/', routes.index);
 app.get('/preview', function(req, res) {
   res.render('../email_templates/poll-pretty.html');
 })
+
 app.post('/mail', routes.mail);
 app.post('/update', routes.update);
 app.get('/admin', routes.admin);
