@@ -7,6 +7,7 @@ var routes = require(__dirname + '/routes/routes');
 var firebase = require('firebase');
 var config = require(__dirname + '/authConfig').config;
 var app = express();
+var router = express.Router();
 
 // VIEW ENGINE
 app.set('views', __dirname + '/views');
@@ -27,7 +28,7 @@ app.get('/preview', function(req, res) {
 
 app.post('/mail', routes.mail);
 app.post('/update', routes.update);
-app.get('/admin', routes.admin);
+app.get('/admin/:form_id', routes.admin);
 
 // Uncomment the next line to test the database
 // app.get('/test-database', routes.testDatabase);

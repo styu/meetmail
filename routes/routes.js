@@ -5,6 +5,7 @@ var fs = require('fs');
 var auth = require(__dirname + '/../authConfig').auth;
 var config = require(__dirname + '/../authConfig').config;
 var Firebase = require('firebase');
+var Q = require('q');
 
 var DEBUG = false;
 
@@ -104,6 +105,75 @@ exports.update = function(req, res) {
   });
 }
 
+function getUserResponse (promises, formId, user, options) {
+  var deferred = Q.defer();
+  ref.child('form').child(formId).child('users').child(user).once('value', function(user) {
+    var userData = user.val();
+    var keys = _.keys(options);
+    var vals = _.map(keys, function(val) { return false; });
+    var user_options = {};
+    _.each(keys, function(key, idx) { user_options[key] = vals[idx]; });
+    if (userData.responses) {
+      _.each(userData.responses, function(response, idx) {
+        user_options[response] = true;
+      });
+    }
+    deferred.resolve({
+      email: userData.email,
+      responses: user_options
+    });
+  });
+  promises.push(deferred.promise);
+  return promises;
+}
+
 exports.admin = function(req, res) {
-  // get form
+  var formId = req.params.form_id;
+  var options = {
+    'opt1': {
+      'day': 'Wednesday, Oct 8',
+      'time': '8pm - 9pm'
+    },
+    'opt2': {
+      'day': 'Wednesday, Oct 8',
+      'time': '9pm - 10pm'
+    },
+    'opt3': {
+      'day': 'Wednesday, Oct 8',
+      'time': '10pm - 11pm'
+    },
+    'opt4': {
+      'day': 'Wednesday, Oct 8',
+      'time': '11pm - 12am'
+    },
+    'opt5': {
+      'day': 'Thursday, Oct 9',
+      'time': '8pm - 9pm'
+    },
+    'opt6': {
+      'day': 'Thursday, Oct 9',
+      'time': '9pm - 10pm'
+    },
+    'opt7': {
+      'day': 'Thursday, Oct 9',
+      'time': '10pm - 11pm'
+    },
+    'opt8': {
+      'day': 'Thursday, Oct 9',
+      'time': '11pm - 12am'
+    }
+  };
+  var users = [];
+  ref = new Firebase("https://poofytoo.firebaseio.com/meetmail");
+  ref.child('form').child(formId).once('value', function(form) {
+    data = form.val();
+    usersList = data.users;
+    var promises = [];
+    for (user in usersList) {
+      promises = getUserResponse(promises, formId, user, options);
+    }
+    Q.all(promises).then(function(results) {
+      res.render('admin.html', {options: options, users: results});
+    });
+  });
 }

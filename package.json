@@ -11,7 +11,8 @@
     "body-parser": "*",
     "mongoose": "*",
     "nodemailer": "*",
-    "firebase": "*"
+    "firebase": "*",
+    "q": "*"
   },
   "subdomain": "meetmail",
   "scripts": {

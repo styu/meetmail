@@ -11,7 +11,7 @@
         <tr>
           <th>Person</th>
           {{#each options}}
-          <th>{{this}}</th>
+          <th>{{this.day}} {{this.time}}</th>
           {{/each}}
         </tr>
       </thead>
@@ -23,6 +23,7 @@
           <td>{{#if this}}Yes{{else}}No{{/if}}</td>
           {{/each}}
         </tr>
+        {{/each}}
       </tbody>
     </table>
     <script src='/js/jquery.min.js' type='text/javascript'></script>
