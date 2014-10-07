@@ -92,3 +92,7 @@ exports.update = function(req, res) {
     });
   res.end();
 }
+
+exports.admin = function(req, res) {
+  // get form
+}

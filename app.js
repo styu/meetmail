@@ -25,6 +25,7 @@ app.get('/preview', function(req, res) {
 })
 app.post('/mail', routes.mail);
 app.post('/update', routes.update);
+app.get('/admin', routes.admin);
 
 // Uncomment the next line to test the database
 // app.get('/test-database', routes.testDatabase);
