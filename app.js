@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var routes = require(__dirname + '/routes/routes');
 var firebase = require('firebase');
+var config = require(__dirname + '/authConfig').config;
 var app = express();
 
 // VIEW ENGINE
@@ -31,6 +32,6 @@ app.get('/admin', routes.admin);
 // Uncomment the next line to test the database
 // app.get('/test-database', routes.testDatabase);
 
-http.createServer(app).listen(80, function(){
-  console.log('Express server listening on port ' + 3000);
+http.createServer(app).listen(config.port, function(){
+  console.log('Express server listening on port ' + config.port);
 });
