@@ -31,6 +31,10 @@ app.use(bodyParser.json());
 // END VIEW ENGINE
 
 app.get('/', routes.index);
+
+app.get('/preview', function(req, res) {
+  res.render('../email_templates/poll.html');
+})
 // Uncomment the next line to test the database
 // app.get('/test-database', routes.testDatabase);
 
