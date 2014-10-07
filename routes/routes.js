@@ -5,7 +5,7 @@ var fs = require('fs');
 var auth = require(__dirname + '/../authConfig').auth;
 var Firebase = require('firebase');
 
-var DEBUG = true;
+var DEBUG = false;
 
 // create reusable transporter object using SMTP transport
 var transporter = nodemailer.createTransport({
@@ -31,7 +31,7 @@ exports.mail = function(req, res) {
 
     var formData = {};
     formData.id = formId;
-    formData.name = "nexthaunt";
+    formData.name = form;
     formData.users = {};
 
     emails = req.body.emails;
@@ -39,7 +39,6 @@ exports.mail = function(req, res) {
     hashes = {};
     fs.readFile(__dirname + '/../email_templates/poll.html', 'utf8', function (err, template) {
       if (err) throw err;
-      console.log(template);
       var userCounter = 0;
       _.each(emails, function (email, idx) {
         var shasum = crypto.createHash('sha1');
