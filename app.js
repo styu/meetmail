@@ -26,6 +26,7 @@ app.set('view options', {layout: false});
 
 hbs.registerPartials(__dirname + '/views/partials');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // END VIEW ENGINE
 
