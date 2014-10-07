@@ -97,7 +97,7 @@ exports.update = function(req, res) {
       for (user in usersList) {
         if (usersList[user].token == token) {
           console.log(usersList[user].email + " just submitted a response!");
-          response = _.omit(req.body, 'token');
+          response = _.omit(req.body, ['token', 'email_id']);
           ref.child('form').child(formId).child('users').child(user).child('responses').set(response);
           res.render('submit.html', {email: usersList[user].email});
         };
