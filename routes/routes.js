@@ -97,7 +97,8 @@ exports.update = function(req, res) {
           console.log(usersList[user].email + " just submitted a response!");
           response = _.omit(req.body, 'token');
           // Write response object to responses under users
-          // ref.child('form').child(formId).child('users').child(usersList[user].id).child('responses').set(response);
+          console.log(response);
+          ref.child('form').child(formId).child('users').child(user).child('responses').set(response);
         };
       }
   });
