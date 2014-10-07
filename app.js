@@ -31,6 +31,6 @@ app.get('/admin', routes.admin);
 // Uncomment the next line to test the database
 // app.get('/test-database', routes.testDatabase);
 
-http.createServer(app).listen(3000, function(){
+http.createServer(app).listen(80, function(){
   console.log('Express server listening on port ' + 3000);
 });

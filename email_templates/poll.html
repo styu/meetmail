@@ -1,39 +1,86 @@
-<div id="form-inline" class="form-wrapper" style="font-family: sans-serif;width: 100%;">
+<!-- get ready for the worst html of your life -->
+
+<!-- EMAIL PRETTY VERSION -->
+<style>
+
+h2 {
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 4px;
+  border-bottom: 3px solid #eee;
+}
+
+.form-wrapper { 
+  font-family: sans-serif;
+  width: 100%;
+}
+
+label {
+  background-color: #e4fdcd;
+  border: 1px solid #c0e4a0;
+  padding: 10px 12px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input[type="submit"] {
+  background-color: #ffc600;
+  border: 1px solid #e89300;
+  padding: 10px 50px;
+  
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #333;
+}
+.submit-btn-box {
+  margin-top: 30px;
+  text-align: center;
+}
+</style>
+
+<div class="form-wrapper" style="font-family: sans-serif;width: 100%;">
+Hey everyone, <br><br>
+I'd like to meet again before this weekend hits us all and before we leave. Please fill out this form by <b>Tuesday Evening</b>. After we've decided a date, I'll be sending out an email to the general next-forum populus to invite people to come join and listen. Each department will give a short update and we'll go from there.
+<br><br>
+Please indicate your availability below:<br><br>
 <form method="post" action="{email_action}">
-  <input type="hidden" name="token" value="{email_token}">
+  <input type="hidden" id="token" value="{email_token}">
   <input type="hidden" name="email_id" value="{email_id}">
+  
   <h2 style="font-family: sans-serif;font-size: 18px;font-weight: 600;padding-bottom: 4px;border-bottom: 3px solid #eee;">Wednesday, Oct 8</h2>
   <label for="opt-1" style="background-color: #e4fdcd;border: 1px solid #c0e4a0;padding: 10px 12px;margin-bottom: 5px;display: block;">
-    <input name="opt-1" type="checkbox">
+    <input id="opt-1" type="checkbox">
     8pm - 9pm
   </label>
   <label for="opt-2" style="background-color: #e4fdcd;border: 1px solid #c0e4a0;padding: 10px 12px;margin-bottom: 5px;display: block;">
-    <input name="opt-2" type="checkbox">
+    <input id="opt-2" type="checkbox">
     9pm - 10pm
   </label>
   <label for="opt-3" style="background-color: #e4fdcd;border: 1px solid #c0e4a0;padding: 10px 12px;margin-bottom: 5px;display: block;">
-    <input name="opt-3" type="checkbox">
+    <input id="opt-3" type="checkbox">
     10pm - 11pm
   </label>
   <label for="opt-4" style="background-color: #e4fdcd;border: 1px solid #c0e4a0;padding: 10px 12px;margin-bottom: 5px;display: block;">
-    <input name="opt-4" type="checkbox">
+    <input id="opt-4" type="checkbox">
     11pm - 12am
   </label>
   <h2 style="font-family: sans-serif;font-size: 18px;font-weight: 600;padding-bottom: 4px;border-bottom: 3px solid #eee;">Thursday, Oct 9</h2>
   <label for="opt-5" style="background-color: #e4fdcd;border: 1px solid #c0e4a0;padding: 10px 12px;margin-bottom: 5px;display: block;">
-    <input name="opt-5" type="checkbox">
+    <input id="opt-5" type="checkbox">
     8pm - 9pm
   </label>
   <label for="opt-6" style="background-color: #e4fdcd;border: 1px solid #c0e4a0;padding: 10px 12px;margin-bottom: 5px;display: block;">
-    <input name="opt-6" type="checkbox">
+    <input id="opt-6" type="checkbox">
     9pm - 10pm
   </label>
   <label for="opt-7" style="background-color: #e4fdcd;border: 1px solid #c0e4a0;padding: 10px 12px;margin-bottom: 5px;display: block;">
-    <input name="opt-7" type="checkbox">
+    <input id="opt-7" type="checkbox">
     10pm - 11pm
   </label>
   <label for="opt-8" style="background-color: #e4fdcd;border: 1px solid #c0e4a0;padding: 10px 12px;margin-bottom: 5px;display: block;">
-    <input name="opt-8" type="checkbox">
+    <input id="opt-8" type="checkbox">
     11pm - 12am
   </label>
   <div class="submit-btn-box" style="margin-top: 30px;text-align: center;">

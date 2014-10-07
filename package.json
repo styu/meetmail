@@ -1,6 +1,6 @@
 {
-  "name": "sample-node-app",
-  "description": "sample node app",
+  "name": "meetmail",
+  "description": "meeting made easier",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -12,5 +12,12 @@
     "mongoose": "*",
     "nodemailer": "*",
     "firebase": "*"
+  },
+  "subdomain": "meetmail",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }

@@ -3,6 +3,7 @@ var _ = require('underscore');
 var nodemailer = require('nodemailer');
 var fs = require('fs');
 var auth = require(__dirname + '/../authConfig').auth;
+var config = require(__dirname + '/../authConfig').config;
 var Firebase = require('firebase');
 
 var DEBUG = false;
@@ -48,14 +49,14 @@ exports.mail = function(req, res) {
           email: email,
           form: form
         };
-        email_html = template.replace('{email_action}', 'http://localhost:3000/update')
+        email_html = template.replace('{email_action}', config.url + '/update')
         email_html = email_html.replace('{email_token}', hash);
         email_html = email_html.replace('{email_id}', formId);
         // setup e-mail data with unicode symbols
         var mailOptions = {
             from: 'Victor Hung <victormeetmail@gmail.com>', // sender address
             to: email, // list of receivers
-            subject: 'Meet Mail!', // Subject line
+            subject: '[Next Haunt] Next Meeting for Next Haunt', // Subject line
             html: email_html // html body
         };
 
