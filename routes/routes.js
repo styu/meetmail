@@ -114,7 +114,7 @@ function getUserResponse (promises, formId, user, options) {
     var user_options = {};
     _.each(keys, function(key, idx) { user_options[key] = vals[idx]; });
     if (userData.responses) {
-      _.each(userData.responses, function(response, idx) {
+      _.each(userData.responses, function(idx, response) {
         user_options[response] = true;
       });
     }
@@ -130,35 +130,35 @@ function getUserResponse (promises, formId, user, options) {
 exports.admin = function(req, res) {
   var formId = req.params.form_id;
   var options = {
-    'opt1': {
+    'opt-1': {
       'day': 'Wed, Oct 8',
       'time': '8pm - 9pm'
     },
-    'opt2': {
+    'opt-2': {
       'day': 'Wed, Oct 8',
       'time': '9pm - 10pm'
     },
-    'opt3': {
+    'opt-3': {
       'day': 'Wed, Oct 8',
       'time': '10pm - 11pm'
     },
-    'opt4': {
+    'opt-4': {
       'day': 'Wed, Oct 8',
       'time': '11pm - 12am'
     },
-    'opt5': {
+    'opt-5': {
       'day': 'Thurs, Oct 9',
       'time': '8pm - 9pm'
     },
-    'opt6': {
+    'opt-6': {
       'day': 'Thurs, Oct 9',
       'time': '9pm - 10pm'
     },
-    'opt7': {
+    'opt-7': {
       'day': 'Thurs, Oct 9',
       'time': '10pm - 11pm'
     },
-    'opt8': {
+    'opt-8': {
       'day': 'Thurs, Oct 9',
       'time': '11pm - 12am'
     }
