@@ -131,35 +131,35 @@ exports.admin = function(req, res) {
   var formId = req.params.form_id;
   var options = {
     'opt1': {
-      'day': 'Wednesday, Oct 8',
+      'day': 'Wed, Oct 8',
       'time': '8pm - 9pm'
     },
     'opt2': {
-      'day': 'Wednesday, Oct 8',
+      'day': 'Wed, Oct 8',
       'time': '9pm - 10pm'
     },
     'opt3': {
-      'day': 'Wednesday, Oct 8',
+      'day': 'Wed, Oct 8',
       'time': '10pm - 11pm'
     },
     'opt4': {
-      'day': 'Wednesday, Oct 8',
+      'day': 'Wed, Oct 8',
       'time': '11pm - 12am'
     },
     'opt5': {
-      'day': 'Thursday, Oct 9',
+      'day': 'Thurs, Oct 9',
       'time': '8pm - 9pm'
     },
     'opt6': {
-      'day': 'Thursday, Oct 9',
+      'day': 'Thurs, Oct 9',
       'time': '9pm - 10pm'
     },
     'opt7': {
-      'day': 'Thursday, Oct 9',
+      'day': 'Thurs, Oct 9',
       'time': '10pm - 11pm'
     },
     'opt8': {
-      'day': 'Thursday, Oct 9',
+      'day': 'Thurs, Oct 9',
       'time': '11pm - 12am'
     }
   };
